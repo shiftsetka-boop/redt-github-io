@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Discover What’s Next</title>
+  <style>
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#0c0e0b}
+    body{color:#fff;font-family:Arial,Helvetica,sans-serif}
+    .page{width:min(430px,100%);min-height:100svh;margin:0 auto;padding:22px 18px max(30px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;background:radial-gradient(ellipse 80% 40% at 50% 0,#34402b 0%,#1b2117 45%,#0c0e0b 100%)}
+    .photo{overflow:hidden;border:1px solid rgba(255,255,255,.15);border-radius:24px;background:#20251c;box-shadow:0 18px 42px rgba(0,0,0,.55)}
+    .photo img{display:block;width:100%;height:auto;vertical-align:middle}
+    .content{display:flex;flex-direction:column;align-items:center;padding:27px 5px 0;text-align:center}
+    .content p{max-width:355px;margin:0 0 25px;color:#fffef9;font-size:clamp(1.35rem,6vw,1.82rem);font-weight:700;line-height:1.17;letter-spacing:-.045em;text-wrap:balance;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+    button{width:min(350px,100%);min-height:63px;border:1px solid #ffedb2;border-radius:18px;background:linear-gradient(135deg,#e8ad28 0%,#ffe8a2 50%,#e3a51c 100%);box-shadow:0 5px 0 #975b13,0 14px 27px rgba(0,0,0,.5),inset 0 1px 0 #fffbe8;color:#1c1305;cursor:pointer;font:800 13px/1 Arial,Helvetica,sans-serif;letter-spacing:.13em;transition:transform .14s ease,box-shadow .14s ease}
+    button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+    button:active{transform:translateY(5px);box-shadow:0 1px 0 #975b13,0 5px 12px rgba(0,0,0,.48)}
+    @media (min-width:431px){body{padding:16px}.page{min-height:calc(100svh - 32px);border-radius:28px;overflow:hidden}}
+    @media (max-height:700px){.page{justify-content:flex-start;padding-top:18px}.content{padding-top:20px}.content p{margin-bottom:19px;font-size:1.27rem}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="photo">
+      <picture>
+        <source type="image/avif" srcset="community-480.avif 480w, community-640.avif 640w" sizes="(max-width: 430px) calc(100vw - 36px), 394px">
+        <source type="image/webp" srcset="community-480.webp 480w, community-640.webp 640w" sizes="(max-width: 430px) calc(100vw - 36px), 394px">
+        <img src="community-640.jpg" width="640" height="777" alt="Four people sharing happy moments" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
+    <section class="content">
+      <p>See what’s waiting for you.<br>Take a closer look at the moments shared by people.</p>
+      <!-- Replace the URL below with your offer link. -->
+      <button id="cta" data-offer="https://YOUR-OFFER-LINK.com" type="button">CONTINUE&nbsp; →</button>
+    </section>
+  </main>
+  <script>
+    document.querySelector('#cta').addEventListener('click', event => {
+      window.location.assign(event.currentTarget.dataset.offer);
+    });
+  </script>
+</body>
+</html>
